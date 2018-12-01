@@ -208,13 +208,8 @@ input[type="submit"]:hover {
 
 
 .theatreBox{
-  margin-top: 40px;
-  width: 600px;
-  height: 150px;
-  /* border-style: solid;
-  border-width: 5px; */
-  margin-right: 30#;
-  margin: 0 auto;
+  background-color: red;
+  width: 100%;
 }
 
 .theatreBox p {
@@ -223,27 +218,16 @@ input[type="submit"]:hover {
   color: white;
   /* border-style: solid;
   border-width: 1px; */
-  font-size: 32px;
+  font-size: 12px;
   margin-right: 30%;
 
 }
 
 #address{
-  margin-top: -20px;
-  font-size: 20px;
+  font-size: 10px;
   color: #eed697;
 }
 
-.graphBox{
-  float: left;
-  width: 300px;
-  height: 300px;
-  /* border-style: solid;
-  border-width: 5px; */
-  margin-right: 10px;
-  background: grey;
-
-}
 
 #leftCornD{
   bottom: 0px;
@@ -275,17 +259,17 @@ input[type="submit"]:hover {
   float: left;
 }
 
-.map{
+#map{
   background-color: #507176;
   width: 60%;
   height: 100vh;
   float: left;
 }
 
-.container{
+.rightSide{
   width: 40%;
   height: 100vh;
-  /* background-color: blue; */
+  background-color: blue;
   float: right;
 
 }
@@ -332,13 +316,15 @@ input[type="submit"]:hover {
   height: 200px;
 }
 
-.mojiBox p{
+.name{
   font-size: 13;
   font-family: gotham;
   color: white;
 }
 
-#map {
-        height: 500px;
-        width: 100%;
-      }
+
+.position{
+  font-size: 8;
+  font-family: gotham;
+  color: #eed697;
+}
