@@ -1,123 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Theatres in Your Area</title>
-    <link rel= "stylesheet" type= "text/css" href= "../static/css/chart.css">
-    <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/chart.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="../static/js/chart.js"></script>
-  </head>
-  <div class="backgroundTheatrePage">
+    <script src="../static/js/ImageScroll.js"></script>
+</head>
+<div class="backgroundTheatrePage">
+    <ul id="scroller">
+        <li><img src="https://i.imgur.com/C0qx58D.jpg" class="scroll"/></li>
+        <li><img src="https://i.imgur.com/S1j0FcZ.jpg" alt="" class="scroll"/></li>
+        <li><img src="https://i.imgur.com/FK7rHNv.jpg" alt="" class="scroll"/></li>
+        <li><img src="https://i.imgur.com/bRm9zpd.jpg" alt="" class="scroll"/></li>
+    </ul>
     <div class="crowdyWrapper">
-      <p class="title">Crowdy</p>
-      <p class="subTitle">Here. Are. Your. Theaters.</p>
+        <p class="title">Crowdy</p>
+        <p class="subTitle">Here. Are. Your. Theaters.</p>
     </div>
 
 
     <body class="bodyDis">
-      <div id = "map">
+    <div id="map">
 
-      </div>
-      <div class="rightSide">
-      {% for element in list %}
+    </div>
+    <div class="rightSide">
+        {% for element in list %}
 
         <div class="theatreBox">
-          <p><b></b>{{ element.name }} </p>
-          <p id="address"><b>Address: </b>{{ element.address }} </p>
+            <p><b></b>{{ element.name }} </p>
+            <p id="address"><b>Address: </b>{{ element.address }} </p>
 
-          <div class="shit">
-            <form action="{{ url_for('pop') }}" method="POST">
-              <input id="disappear" type="text" name="place" value="{{ element.place_id}}">
-            </input>
-              <!-- <button type="submit" value="Send Email" placeholder="hello" /> -->
-            </form>
+            <div class="shit">
+                <form action="{{ url_for('pop') }}" method="POST">
+                    <input id="disappear" type="text" name="place" value="{{ element.place_id}}">
+                    </input>
+                    <!-- <button type="submit" value="Send Email" placeholder="hello" /> -->
+                </form>
             </div>
         </div>
         <div id="chartID"></div>
 
 
-       <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
-       {% endfor %}
-     </div>
+        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
+        {% endfor %}
+    </div>
 
-     <div class="bottom">
-       <p id="title2">Meet The Team</p>
-       <div class="mojiWrapper">
-         <div class="mojiBox">
-            <img class="bit" src="https://i.imgur.com/Dcx53li.png" alt="">
-            <p class = "name">Simone Chan</p>
-            <p class="position">Back-End Developer</p>
-         </div>
+    <div class="bottom">
+        <p id="title2">Meet The Team</p>
+        <div class="mojiWrapper">
+            <div class="mojiBox">
+                <img class="bit" src="https://i.imgur.com/Dcx53li.png" alt="">
+                <p class="name">Simone Chan</p>
+                <p class="position">Back-End Developer</p>
+            </div>
 
-         <div class="mojiBox">
-          <img class="bit" src="https://i.imgur.com/jUvFgfa.png" alt="">
-          <p class = "name">Daniel Lobaton</p>
-          <p class="position"> Project Manager</p>
-         </div>
+            <div class="mojiBox">
+                <img class="bit" src="https://i.imgur.com/jUvFgfa.png" alt="">
+                <p class="name">Daniel Lobaton</p>
+                <p class="position"> Project Manager</p>
+            </div>
 
-         <div class="mojiBox">
-           <img class="bit" src="https://i.imgur.com/0FIPXl0.png" alt="">
-           <p class = "name">Harsh Patel</p>
-           <p class="position">Scrum Master</p>
-           <p></p>
-         </div>
+            <div class="mojiBox">
+                <img class="bit" src="https://i.imgur.com/0FIPXl0.png" alt="">
+                <p class="name">Harsh Patel</p>
+                <p class="position">Scrum Master</p>
+                <p></p>
+            </div>
 
-         <div class="mojiBox">
-           <img class="bit" src="https://i.imgur.com/O43ClW1.png" alt="">
-           <p class = "name">Eduardo Graziano</p>
-           <p class="position">Back-End Developer</p>
-         </div>
+            <div class="mojiBox">
+                <img class="bit" src="https://i.imgur.com/O43ClW1.png" alt="">
+                <p class="name">Eduardo Graziano</p>
+                <p class="position">Back-End Developer</p>
+            </div>
 
-         <div id = "lastbox" class="mojiBox">
-           <img class="bit" src="https://i.imgur.com/ZpIiPlv.png" alt="">
-           <p class = "name">Eric Roque</p>
-           <p class="position">Front-End Developer</p>
-           </div>
-           <!-- <a href='logout'>Logout</a> -->
-        </body>
-        <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
-        <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
-        <script>
-         debugger;
-         var locations = [];
-         {% for element in list %}
+            <div id="lastbox" class="mojiBox">
+                <img class="bit" src="https://i.imgur.com/ZpIiPlv.png" alt="">
+                <p class="name">Eric Roque</p>
+                <p class="position">Front-End Developer</p>
+            </div>
+            <!-- <a href='logout'>Logout</a> -->
+        </div>
+    </div>
+    </body>
+    <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
+    <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
+    <script>
+        debugger;
+        var locations = [];
+        {% for element in list %}
 
-           locations.push([ {{element.lat}}, {{element.lng}}, "{{ element.name}}" ]);
-           // console.log({{element.name}});
+        locations.push([{{element.lat}},
+        {
+            {
+                element.lng
+            }
+        }
+        ,
+        "{{ element.name}}"
+        ]);
+        // console.log({{element.name}});
 
-         {% endfor %}
-         function initMap(){
-           var location = {lat:{{userLocationDict['latitude']}}, lng:{{userLocationDict['longitude']}}};
+        {% endfor %}
+        function initMap() {
+            var location = {lat: {
+            {
+                userLocationDict['latitude']
+            }
+        },
+            lng:{
+                {
+                    userLocationDict['longitude']
+                }
+            }
+        }
+            ;
 
-           var map = new google.maps.Map(document.getElementById("map"), {
-             zoom: 12,
-             center: location
-           });
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: location
+            });
 
 
-           var infowindow = new google.maps.InfoWindow();
+            var infowindow = new google.maps.InfoWindow();
 
-           var marker, i;
+            var marker, i;
 
-           for (i = 0; i < locations.length; i++) {
+            for (i = 0; i < locations.length; i++) {
 
-             marker = new google.maps.Marker({
-               position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-               map: map
-             });
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+                    map: map
+                });
 
-           google.maps.event.addListener(marker, 'click', (function(marker, i) {
-             return function() {
-               infowindow.setContent(locations[i][2]);
-               infowindow.open(map, marker);
-             }
-           })(marker, i));
-         }
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][2]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
 
-         }
-       </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI&callback=initMap"></script>
+        }
+    </script>
+    <!--<script>-->
+        <!--$('#scroller').imageScroll({-->
+            <!--orientation:"left",-->
+            <!--// animation speed-->
+            <!--speed:600,-->
+            <!--// animation interval-->
+            <!--interval:1500,-->
+            <!--// pause on hover-->
+            <!--hoverPause:true,-->
+            <!--// callback function after every scroll motion-->
+            <!--callback:function(){ return false;}-->
+        <!--});-->
 
+    <!--</script>-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI&callback=initMap"></script>
+</div>
 </html>
