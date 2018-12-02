@@ -329,3 +329,7 @@ input[type="submit"]:hover {
   font-family: gotham;
   color: #eed697;
 }
+
+.ammenities {
+  margin-right: 3px;
+}
