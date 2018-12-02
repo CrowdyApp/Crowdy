@@ -143,10 +143,7 @@ def dashboard():
 
 @app.route('/pop', methods=['GET', 'POST'])
 def pop():
-    if request.method == 'POST':
-        day = datetime.datetime.now()
-        select = (str(request.form.get('place')))
-
+    day = datetime.datetime.now()
     res = [0, 0, 0, 0, 0, 0, 0, 0, 26, 35]
     for j in range(9):
         res.append(random.randint(38, 43))

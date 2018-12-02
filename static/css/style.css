@@ -329,3 +329,9 @@ input[type="submit"]:hover {
   font-family: gotham;
   color: #eed697;
 }
+
+.modal-dialogue{
+
+  width: 100%;
+  height: 100%;
+}
