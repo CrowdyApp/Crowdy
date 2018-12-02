@@ -12,12 +12,6 @@
     <script src="../static/js/ImageScroll.js"></script>
 </head>
 <div class="backgroundTheatrePage">
-    <ul id="scroller">
-        <li><img src="https://i.imgur.com/C0qx58D.jpg" class="scroll"/></li>
-        <li><img src="https://i.imgur.com/S1j0FcZ.jpg" alt="" class="scroll"/></li>
-        <li><img src="https://i.imgur.com/FK7rHNv.jpg" alt="" class="scroll"/></li>
-        <li><img src="https://i.imgur.com/bRm9zpd.jpg" alt="" class="scroll"/></li>
-    </ul>
     <div class="crowdyWrapper">
         <p class="title">Crowdy</p>
         <p class="subTitle">Here. Are. Your. Theaters.</p>
@@ -49,7 +43,12 @@
         <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
         {% endfor %}
     </div>
-
+    <ul id="imgs">
+        <li><div><img src="http://image.prntscr.com/image/15f7d1b8dca94296b249f56eb6cc78d3.png"/></div></li>
+        </li><img src="http://image.prntscr.com/image/ad357d428faf4e88ab3bdac78782b523.png"/><li>
+        <li> <img src="http://image.prntscr.com/image/15f7d1b8dca94296b249f56eb6cc78d3.png"/></li>
+        </li><img src="http://image.prntscr.com/image/ad357d428faf4e88ab3bdac78782b523.png"/><li>
+    </ul>
     <div class="bottom">
         <p id="title2">Meet The Team</p>
         <div class="mojiWrapper">
@@ -86,9 +85,20 @@
             <!-- <a href='logout'>Logout</a> -->
         </div>
     </div>
+    <script>
+        $('#imgs').imageScroll({
+            orientation:"left",
+            speed:600,
+            interval:1000,
+            hoverPause:true,
+            callback:function(){
+                var ordinal = $(this).find("img").first().attr("src");
+                <!-- console.log(ordinal); -->
+                $(this).next("span").text("CallbackDisplay: hidden "+ordinal+"!");
+            }
+        });
+    </script>
     </body>
-    <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
-    <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
     <script>
         debugger;
         var locations = [];
@@ -147,20 +157,6 @@
 
         }
     </script>
-    <!--<script>-->
-        <!--$('#scroller').imageScroll({-->
-            <!--orientation:"left",-->
-            <!--// animation speed-->
-            <!--speed:600,-->
-            <!--// animation interval-->
-            <!--interval:1500,-->
-            <!--// pause on hover-->
-            <!--hoverPause:true,-->
-            <!--// callback function after every scroll motion-->
-            <!--callback:function(){ return false;}-->
-        <!--});-->
-
-    <!--</script>-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI&callback=initMap"></script>
 </div>
 </html>
