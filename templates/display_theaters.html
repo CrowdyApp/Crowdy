@@ -15,6 +15,9 @@
       <p class="subTitle">Here. Are. Your. Theaters.</p>
     </div>
 
+    <div class="greeting">
+      <h2>Hi, {{ name }}</h2>
+    </div>
 
     <body class="bodyDis">
       <div id = "map">
@@ -27,7 +30,7 @@
           <p><b></b>{{ element.name }} </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
 
-          
+
         </div>
         <div id="chartID"></div>
 
@@ -179,7 +182,7 @@
                position: location,
                icon: 'https://i.imgur.com/E8chygb.png',
                map: map
-              
+
              });
            google.maps.event.addListener(marker, 'click', (function(marker) {
              return function() {
@@ -194,14 +197,14 @@
                position: new google.maps.LatLng(locations[i][0], locations[i][1]),
                icon: 'https://i.imgur.com/FOZCPJz.png',
                map: map
-              
+
              });
 
            google.maps.event.addListener(marker, 'click', (function(marker, i) {
              return function() {
                infowindow.setContent(locations[i][2] + "<br/><div style='float:left; margin-right: 8px; margin-top: 8px;'><img src='https://i.imgur.com/roENba2.png'></div><div style='float:left; margin-right: 8px; margin-top: 8px;'><img src='https://i.imgur.com/nPATIQP.png'></div><div style='float:left; margin-right: 8px; margin-top: 8px;'><img src='https://i.imgur.com/1GPIrkc.png'></div><div style='float:left; margin-right: 8px; margin-top: 8px;'><img src='https://i.imgur.com/CMpWVoA.png'></div>");
                infowindow.open(map, marker);
-               
+
              }
            })(marker, i));
          }

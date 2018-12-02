@@ -44,10 +44,11 @@ def index():
 	return render_template('/index.html')
 
 class User(UserMixin, db.Document):
-	meta = {'collection': 'users'}
-	email = db.StringField(max_length=30)
-	password = db.StringField()
-	location = db.StringField()
+    meta = {'collection': 'users'}
+    name = db.StringField()
+    email = db.StringField(max_length=30)
+    password = db.StringField()
+    location = db.StringField()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -55,9 +56,10 @@ def load_user(user_id):
 
 #FORMS
 class RegForm(FlaskForm):
-	email = StringField('Email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
-	password = PasswordField('Password', validators=[InputRequired(), Length(min=1, max=20)])
-	location = StringField('Email',  validators=[InputRequired(), Length(max=30)])
+    name = StringField('Name', validators=[InputRequired(), Length(max=30)])
+    email = StringField('Email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=1, max=20)])
+    location = StringField('Location',  validators=[InputRequired(), Length(max=30)])
 
 class LogForm(FlaskForm):
 	email = StringField('Email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
@@ -72,7 +74,7 @@ def register():
 			existing_user = User.objects(email=form.email.data).first()
 			if existing_user is None:
 				hashpass = generate_password_hash(form.password.data, method='sha256')
-				user = User(form.email.data,hashpass,form.location.data).save()
+				user = User(form.name.data,form.email.data,hashpass,form.location.data).save()
 				login_user(user)
 				return redirect(url_for('dashboard'))
 	return render_template('register.html', form=form)
@@ -139,7 +141,7 @@ def dashboard():
         tempT.lng = item["geometry"]["location"]["lng"]
         list.append(tempT)
 
-    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict)
+    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict, name=current_user.name)
 
 @app.route('/pop', methods=['GET', 'POST'])
 def pop():
