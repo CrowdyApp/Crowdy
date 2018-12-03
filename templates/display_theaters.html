@@ -12,7 +12,21 @@
     <div class="crowdyWrapper">
       <p class="title">Crowdy</p>
       <p class="subTitle">Here. Are. Your. Theaters.</p>
+
     </div>
+    <div class="inputWrapper">
+      <form class = "topForms"action="" method="POST">
+        <input id="" type="text" name="inputLocation" placeholder="Search Theatre">
+      </input>
+      </form>
+      <form class = "topForms"action="{{ url_for('dashboard') }}" method="POST">
+        <input id="" type="text" name="inputLocation" placeholder="Zip Code">
+      </input>
+    </div>
+
+    <div class="inputWrapper"
+    </div>
+  </form>
 
     <div class="greeting">
       <h2>Hi, {{ name }}</h2>
@@ -27,6 +41,9 @@
 
       </div>
       <div class="rightSide">
+        <div class="titleWrapper">
+          <p id="rightSideTitle">Don't Forget Your Popcorn</p>
+        </div>
       {% for element in list %}
 
         <div class="theatreBox">
@@ -42,6 +59,13 @@
        {% endfor %}
      </div>
 
+
+     <!-- <div id="movieReel">
+        <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
+        <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
+        <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
+     </div> -->
+<!--
      <div class="bottom">
        <p id="title2">Meet The Team</p>
        <div class="mojiWrapper">
@@ -74,8 +98,7 @@
            <img class="bit" src="https://i.imgur.com/ZpIiPlv.png" alt="">
            <p class = "name">Eric Roque</p>
            <p class="position">Front-End Developer</p>
-           </div>
-           <!-- <a href='logout'>Logout</a> -->
+           </div> -->
         </body>
         <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
         <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
@@ -185,7 +208,7 @@
 
            marker = new google.maps.Marker({
                position: location,
-               icon: 'https://i.imgur.com/E8chygb.png',
+               icon: 'https://imgur.com/dOQ5uvh.png',
                map: map
 
              });
@@ -200,7 +223,7 @@
 
              marker = new google.maps.Marker({
                position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-               icon: 'https://i.imgur.com/FOZCPJz.png',
+               icon: 'https://imgur.com/qUnGRR1.png',
                map: map
 
              });
@@ -217,6 +240,14 @@
          }
        </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI&callback=initMap"></script>
+        </div>
+      </div>
+      <div class="disBottom">
+        <div class="leftBox">
+          <p id="meet">Meet the Team</p>
+          <a id="logout"href='logout'>Logout</a>
+        </div>
+      </div>
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
