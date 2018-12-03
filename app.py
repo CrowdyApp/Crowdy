@@ -15,14 +15,6 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 
 app = Flask(__name__)
 
-wishlist = []
-
-movies = [
-    "https://i.imgur.com/Dcx53li.png", "https://i.imgur.com/jUvFgfa.png",
-    "https://i.imgur.com/0FIPXl0.png", "https://i.imgur.com/O43ClW1.png",
-    "https://i.imgur.com/ZpIiPlv.png"
-]
-
 labels = [
     '6am', '7am', '8am', '9am',
     '10am', '11am', '12pm', '1pm',
@@ -51,13 +43,18 @@ login_manager.login_view = 'login'
 def index():
 	return render_template('/index.html')
 
+class Movie(db.EmbeddedDocument):
+    movieName = db.StringField()
+    movieDescription = db.StringField()
+    poster = db.StringField()
+
 class User(UserMixin, db.Document):
     meta = {'collection': 'users'}
     name = db.StringField()
     email = db.StringField(max_length=30)
     password = db.StringField()
     location = db.StringField()
-    wishlist = db.ListField(StringField(), default=list)
+    favorites = db.ListField(db.EmbeddedDocumentField(Movie))
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -115,8 +112,12 @@ def logout():
 @login_required
 def dashboard():
 
-    #loads current user wishlist
-    wishlist = current_user.wishlist
+    #ADDED CODE
+    movies = []
+    movie1 = Movie("firstmovie", "last", "poster")
+    movie2 = Movie("secondmovie", "third", "poster2")
+    movies.append(movie1)
+    movies.append(movie2)
 
     #Converts location string to longitude and latitude radiusString
     geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json"
@@ -189,12 +190,9 @@ def pop():
     return render_template('popular_times.html', title='Popular Times', max=50, labels=bar_labels, times=res)
 
 @login_required
-@app.route('/fave', methods=['POST'])
-def favorite_movie():
-    wishlist.append(str(request.form.get('poster')))
-    user = User(wishlist).save()
-    print(user.wishlist)
-    return json.dumps({'status':'OK', 'poster': request.form['poster']});
+@app.route('/user', methods=['GET'])
+def userProfile():
+    return render_template('user_profile.html', user=current_user)
 
 if __name__ == '__main__':
     app.run(debug = True)

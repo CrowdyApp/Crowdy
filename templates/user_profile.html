@@ -1,0 +1,6 @@
+<body>
+  <h1>hi {{current_user.name}}</h1>
+  <p>{% for element in current_user.favorites %}
+   {{element.movieName}}
+{% endfor %}</p>
+</body>

@@ -16,6 +16,10 @@
 
     <div class="greeting">
       <h2>Hi, {{ name }}</h2>
+      <p> movies
+        {% for element in movies %}
+         {{element.movieName}}
+      {% endfor %}</p>
     </div>
 
     <body class="bodyDis">
@@ -35,17 +39,6 @@
 
 
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
-       {% endfor %}
-     </div>
-
-     <div class="movies">
-       {% for element in movies %}
-
-       <form class="fave-movies" action="/fave" method="POST">
-         <input type="hidden" name="poster" class="form" value="{{ element }}"/>
-         <button type="button" class="faveButton">Favorite</button>
-       </form>
-
        {% endfor %}
      </div>
 
@@ -227,23 +220,5 @@
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
-        <script type="text/javascript">
-        $(function() {
-            $('button').click(function() {
-                $.ajax({
-                    url: '/fave',
-                    data: $('form').serialize(),
-                    type: 'POST',
-                    success: function(response) {
-                        console.log(response);
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    }
-                });
-            });
-          });
-        </script>
 
 </html>
