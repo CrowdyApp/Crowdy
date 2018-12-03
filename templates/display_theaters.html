@@ -5,9 +5,8 @@
     <title>Theatres in Your Area</title>
     <link rel= "stylesheet" type= "text/css" href= "../static/css/chart.css">
     <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
-    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="../static/js/chart.js"></script>
   </head>
   <div class="backgroundTheatrePage">
     <div class="crowdyWrapper">
@@ -36,6 +35,17 @@
 
 
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
+       {% endfor %}
+     </div>
+
+     <div class="movies">
+       {% for element in movies %}
+
+       <form class="fave-movies" action="/fave" method="POST">
+         <input type="hidden" name="poster" class="form" value="{{ element }}"/>
+         <button type="button" class="faveButton">Favorite</button>
+       </form>
+
        {% endfor %}
      </div>
 
@@ -76,8 +86,10 @@
         </body>
         <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
         <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
+
+
+<!--SCRIPT-->
         <script>
-         debugger;
          var locations = [];
          {% for element in list %}
 
@@ -212,5 +224,26 @@
          }
        </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI&callback=initMap"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+        <script type="text/javascript">
+        $(function() {
+            $('button').click(function() {
+                $.ajax({
+                    url: '/fave',
+                    data: $('form').serialize(),
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+          });
+        </script>
 
 </html>

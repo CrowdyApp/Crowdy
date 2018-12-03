@@ -15,6 +15,14 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 
 app = Flask(__name__)
 
+wishlist = []
+
+movies = [
+    "https://i.imgur.com/Dcx53li.png", "https://i.imgur.com/jUvFgfa.png",
+    "https://i.imgur.com/0FIPXl0.png", "https://i.imgur.com/O43ClW1.png",
+    "https://i.imgur.com/ZpIiPlv.png"
+]
+
 labels = [
     '6am', '7am', '8am', '9am',
     '10am', '11am', '12pm', '1pm',
@@ -49,6 +57,7 @@ class User(UserMixin, db.Document):
     email = db.StringField(max_length=30)
     password = db.StringField()
     location = db.StringField()
+    wishlist = db.ListField(StringField(), default=list)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -105,6 +114,10 @@ def logout():
 @app.route('/dashboard', methods = ['POST', 'GET'])
 @login_required
 def dashboard():
+
+    #loads current user wishlist
+    wishlist = current_user.wishlist
+
     #Converts location string to longitude and latitude radiusString
     geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json"
     paramsGeocode = dict(
@@ -141,7 +154,7 @@ def dashboard():
         tempT.lng = item["geometry"]["location"]["lng"]
         list.append(tempT)
 
-    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict, name=current_user.name)
+    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict, name=current_user.name, movies=movies)
 
 @app.route('/pop', methods=['GET', 'POST'])
 def pop():
@@ -174,6 +187,14 @@ def pop():
 
     bar_labels=labels
     return render_template('popular_times.html', title='Popular Times', max=50, labels=bar_labels, times=res)
+
+@login_required
+@app.route('/fave', methods=['POST'])
+def favorite_movie():
+    wishlist.append(str(request.form.get('poster')))
+    user = User(wishlist).save()
+    print(user.wishlist)
+    return json.dumps({'status':'OK', 'poster': request.form['poster']});
 
 if __name__ == '__main__':
     app.run(debug = True)
