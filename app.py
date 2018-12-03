@@ -103,10 +103,16 @@ def logout():
 @app.route('/dashboard', methods = ['POST', 'GET'])
 @login_required
 def dashboard():
+    location = current_user.location
+    radius = 50000
+
+    if request.method == 'POST':
+        if location is current_user.location:
+            location = request.form.get('inputLocation')
     #Converts location string to longitude and latitude radiusString
     geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json"
     paramsGeocode = dict(
-    	address=current_user.location,
+    	address=location,
     	key='AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI'
     )
     resp = requests.get(url=geocodeUrl, params=paramsGeocode).content
@@ -122,7 +128,7 @@ def dashboard():
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
     params = dict(
     	location=lat + ',' + lng,
-    	radius=40000,
+    	radius=radius,
     	type='movie_theater',
     	key='AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI'
     )
