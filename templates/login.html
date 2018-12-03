@@ -1,15 +1,15 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 <div class="background">
+  <p class="title">Login</p>
+  <div class="empty">
+  </div>
   <form action="/login" method="post">
-    <p id="title">Crowdy</p>
-    <p>Email</p>
-    {{ form.email }}
-    <p>Password</p>
-    {{ form.password }}
+    {{ form.email(placeholder = 'Enter Email') }}
+    {{ form.password(placeholder = 'Password') }}
     {{ form.hidden_tag() }}
     <br>
     <br>
-    <input type="submit" value="Login">
+    <input id = "adj" type="submit" value="Login">
   </form>
   <img id="leftCorn" src="https://imgur.com/nmzMpNZ.png" alt="">
   <img id="rightCorn" src="https://imgur.com/ls2WbKd.png" alt="">
