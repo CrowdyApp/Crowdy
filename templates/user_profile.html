@@ -6,6 +6,9 @@
   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body class="background">
+    <form action="/dashboard" method="GET">
+      <button type="submit" class="btn btn-default">Dashboard</button>
+    </form>
     <div class="userBox">
 
         <h1 class="userTitle">hi {{current_user.name}}</h1>
