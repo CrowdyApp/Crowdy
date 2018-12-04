@@ -5,20 +5,28 @@
   <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
-<body>
-  <div class="background">
+<body class="background">
     <div class="userBox">
-      <h1 class="userTitle">hi {{current_user.name}}</h1>
-      <h2>Favorite Movies</h2>
-      <p>{% for element in current_user.favorites %}
-       {{element.movieName}}
-    {% endfor %}</p>
 
-    <h2>Favorite Theaters</h2>
-    <p>{% for element in current_user.theaters %}
-      {{element.theaterName}}
-        {% endfor %}</p>
-    </div>
+        <h1 class="userTitle">hi {{current_user.name}}</h1>
+        <img id="userPic" src="https://imgur.com/IMiMLqF.png" alt="">
+        <p id = "userAdd">Current Address: Konoha in the Hidden Leaf Village</p>
+
+      <div class="userMovies">
+        <!-- <h2 class="userSubTitle">Favorite Movies</h2>
+        <p class="userP">{% for element in current_user.favorites %}
+         {{element.movieName}}
+        {% endfor %}</p> -->
+      </div>
+
+      <h2 class="userSubTitle">Favorite Theaters</h2>
+      <div class="userTheatres">
+        <p class="userP">{% for element in current_user.theaters %}
+          {{element.theaterName}}
+            {% endfor %}</p>
+      </div>
 
   </div>
+  <img id="leftCorn" src="https://imgur.com/nmzMpNZ.png" alt="">
+  <img id="rightCorn" src="https://imgur.com/ls2WbKd.png" alt="">
 </body>
