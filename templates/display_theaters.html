@@ -5,31 +5,29 @@
     <title>Theatres in Your Area</title>
     <link rel= "stylesheet" type= "text/css" href= "../static/css/chart.css">
     <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
-    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="../static/js/chart.js"></script>
   </head>
   <div class="backgroundTheatrePage">
     <div class="crowdyWrapper">
+      <form class = "userProfile" action="{{ url_for('userProfile') }}" method="GET">
+        <button type="submit">User</button>
+      </form>
       <p class="title">Crowdy</p>
       <p class="subTitle">Here. Are. Your. Theaters.</p>
-
     </div>
     <div class="inputWrapper">
-      <form class = "topForms"action="" method="POST">
-        <input id="" type="text" name="inputLocation" placeholder="Search Theatre">
+      <form class = "theaterForm"action="{{ url_for('dashboard') }}" method="POST">
+        <input id="" type="text" name="inputTheater" placeholder="Search Theatre">
+        <button type="submit" name="button">Search</button>
       </input>
       </form>
-      <form class = "topForms"action="{{ url_for('dashboard') }}" method="POST">
-        <input id="" type="text" name="inputLocation" placeholder="Zip Code">
-      </input>
+      <form class = "locationForm"action="{{ url_for('dashboard') }}" method="POST">
+        <input id="" type="text" name="inputLocation" placeholder="Zip Code"></input>
+        <button type="submit" name="button">Search</button>
+      </form>
+      </div>
     </div>
-
-    <div class="inputWrapper"
-    </div>
-  </form>
-
-
     <body class="bodyDis">
       <div id = "map">
 
@@ -43,16 +41,20 @@
         <div class="theatreBox">
           <p><b></b>{{ element.name }} </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
-
-
         </div>
+
+        <form action="/fave-theaters" method="POST">
+          <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
+          <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
         <div id="chartID"></div>
 
 
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
        {% endfor %}
      </div>
-
 
      <!-- <div id="movieReel">
         <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
@@ -96,8 +98,10 @@
         </body>
         <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
         <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
+
+
+<!--SCRIPT-->
         <script>
-         debugger;
          var locations = [];
          {% for element in list %}
 
@@ -240,5 +244,24 @@
           <a id="logout"href='logout'>Logout</a>
         </div>
       </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- <script type="text/javascript">
+        $(document).ready(function() {
+           $('form').click('button', function(event) {
+             event.preventDefault();
+             $.ajax({
+                data : {
+                  name: $('.name').val(),
+                  address: $('.addressInput').val(),
+                       },
+                   type : 'POST',
+                   url : '/fave-theaters'
+                  })
+            });
+          });
+        </script> -->
 
 </html>

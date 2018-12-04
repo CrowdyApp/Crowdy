@@ -448,3 +448,62 @@ input[type="submit"]:hover {
 .ammenities {
   margin-right: 3px;
 }
+
+/* User Page */
+
+.userBox{
+  height: 85%;
+  width: 40%;
+  background-color: #eed697;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.userTitle{
+  margin-top: 10px;
+  font-size: 70px;
+  font-family: gotham;
+  color: black;
+  text-align: center;
+}
+
+#userPic{
+  width: 20%;
+}
+
+#userAdd{
+  margin-top: 17px;
+  font-family: gotham;
+}
+
+/* .userMovies{
+width: 20%;
+height: 20%;
+background-color: red;
+float: left;
+} */
+
+
+
+.userSubTitle{
+  color: black;
+  font-family: gotham;
+}
+
+
+.userTheatres{
+width: 80%;
+height: 40%;
+/* background-color: blue; */
+margin: 0 auto;
+margin-top: 17px;
+overflow-y: auto;
+
+}
+
+.userP{
+  color: black;
+  text-align: left;
+}

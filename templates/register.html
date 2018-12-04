@@ -4,6 +4,7 @@
         <form id="registerForm" action="/register" method="post">
       <!-- <p id = "email">Email</p -->
       <div id="inputBox">
+        {{ form.name(placeholder = 'Name')}}
         {{ form.email(placeholder = 'Email')}}
         <!-- <p>Password</p> -->
         {{ form.password(placeholder = 'Password') }}
