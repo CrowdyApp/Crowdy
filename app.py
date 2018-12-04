@@ -120,17 +120,21 @@ def dashboard():
     keyword = None
 
     if request.method == 'POST':
-        if request.form.get('inputLocation'):
+        if request.form.get('inputLocation') and request.form.get('inputTheater'):
             location = request.form.get('inputLocation')
-        else:
-            location = current_user.location
-        if request.form.get('inputTheater'):
             keyword = request.form.get('inputTheater')
+        else:
+            if request.form.get('inputLocation'):
+                location = request.form.get('inputLocation')
+            else:
+                location = current_user.location
+            if request.form.get('inputTheater'):
+                keyword = request.form.get('inputTheater')
     else:
         location = current_user.location
         keyword=''
 
-    radius = 50000
+    radius = 35000
     #Converts location string to longitude and latitude radiusString
     geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json"
     paramsGeocode = dict(
