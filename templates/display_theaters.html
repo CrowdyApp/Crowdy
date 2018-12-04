@@ -10,23 +10,24 @@
   </head>
   <div class="backgroundTheatrePage">
     <div class="crowdyWrapper">
+      <form class = "userProfile" action="{{ url_for('userProfile') }}" method="GET">
+        <button type="submit">User</button>
+      </form>
       <p class="title">Crowdy</p>
       <p class="subTitle">Here. Are. Your. Theaters.</p>
-
     </div>
     <div class="inputWrapper">
-      <form class = "topForms"action="" method="POST">
-        <input id="" type="text" name="inputLocation" placeholder="Search Theatre">
+      <form class = "theaterForm"action="{{ url_for('dashboard') }}" method="POST">
+        <input id="" type="text" name="inputTheater" placeholder="Search Theatre">
+        <button type="submit" name="button">Search</button>
       </input>
       </form>
-      <form class = "topForms"action="{{ url_for('dashboard') }}" method="POST">
-        <input id="" type="text" name="inputLocation" placeholder="Zip Code">
-      </input>
+      <form class = "locationForm"action="{{ url_for('dashboard') }}" method="POST">
+        <input id="" type="text" name="inputLocation" placeholder="Zip Code"></input>
+        <button type="submit" name="button">Search</button>
+      </form>
+      </div>
     </div>
-
-    <div class="inputWrapper"
-    </div>
-  </form>
     <body class="bodyDis">
       <div id = "map">
 
