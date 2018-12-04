@@ -29,21 +29,25 @@
         <div class="theatreBox">
           <p><b></b>{{ element.name }} </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
-
+          
+            <button class="showChart">Click </button>
+           
+           <div id="dialogBox" style="display: none;">
+            <div id="chartContainer" class="dialog" style="height: 250px; width: 100%;"></div>
+           </div>
           <div class="shit">
-            </div>
+          </div>
         </div>
-
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
        {% endfor %}
      </div>
 
-     <div id="container">
-      <button id="showChart">Click to Show Chart in a Pop-up</button>
+     <!-- <div id="container">
+      <button class="showChart">Click to Show Chart in a Pop-up</button>
      </div>
      <div id="dialogBox" style="display: none;">
       <div id="chartContainer" class="dialog" style="height: 250px; width: 100%;"></div>
-     </div>
+     </div> -->
 
      <div class="bottom">
        <p id="title2">Meet The Team</p>
@@ -220,7 +224,7 @@
         <script>
 
           window.onload = function () {
-
+          debugger;
           var dataPoints = [];
 
           var options =  {
@@ -232,12 +236,13 @@
             	]
           };
 
-          $("#showChart").click(function() {
-
+          $(".showChart").click(function() {
           	$("#dialogBox").dialog({
           		open: function(event,ui) {
           			$(".ui-widget-overlay").bind("click", function(event,ui) {
-          				$("#dialogBox").dialog("close");
+          				$("#dialogBox").dialog("close").done(function(response){
+                     console.log("hi");
+                    });;
           			});
           		},
               title: "Popular Times",
@@ -250,6 +255,7 @@
           	});
           	$(".ui-widget-overlay").css({"background-color": "#111111"});
           	$("#chartContainer").CanvasJSChart(options);
+
           });
 
           function addData(data) {
@@ -260,15 +266,14 @@
           		});
           	}
           	$("#chartContainer").CanvasJSChart(options);
-
+            
           }
-
           $.getJSON("/pop", addData);
 
           }
         </script>
         <style>
-        	#showChart{
+        	.showChart{
         		background-color: #5bb85b;
         		/* color: #ffffff;
         		padding: 10px;
