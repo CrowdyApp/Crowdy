@@ -1,6 +1,18 @@
+<head>
+  <meta charset="utf-8">
+  <title>User Profile</title>
+  <link rel= "stylesheet" type= "text/css" href= "../static/css/chart.css">
+  <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
 <body>
-  <h1>hi {{current_user.name}}</h1>
-  <p>{% for element in current_user.favorites %}
-   {{element.movieName}}
-{% endfor %}</p>
+  <div class="background">
+    <div class="userBox">
+      <h1 class="userTitle">hi {{current_user.name}}</h1>
+      <p>{% for element in current_user.favorites %}
+       {{element.movieName}}
+    {% endfor %}</p>
+    </div>
+
+  </div>
 </body>

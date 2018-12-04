@@ -448,3 +448,25 @@ input[type="submit"]:hover {
 .ammenities {
   margin-right: 3px;
 }
+
+/* User Page */
+.userTitle{
+  margin-top: 4%;
+  font-size: 70px;
+  font-family: gotham;
+  text-align: center;
+  color: white;
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+.userBox{
+  height: 80%;
+  width: 40%;
+  background-color: black;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
