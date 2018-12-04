@@ -49,16 +49,20 @@
         <div class="theatreBox">
           <p><b></b>{{ element.name }} </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
-
-
         </div>
+
+        <form action="/fave-theaters" method="POST">
+          <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
+          <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
         <div id="chartID"></div>
 
 
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
        {% endfor %}
      </div>
-
 
      <!-- <div id="movieReel">
         <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
@@ -251,5 +255,21 @@
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- <script type="text/javascript">
+        $(document).ready(function() {
+           $('form').click('button', function(event) {
+             event.preventDefault();
+             $.ajax({
+                data : {
+                  name: $('.name').val(),
+                  address: $('.addressInput').val(),
+                       },
+                   type : 'POST',
+                   url : '/fave-theaters'
+                  })
+            });
+          });
+        </script> -->
 
 </html>

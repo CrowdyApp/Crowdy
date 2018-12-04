@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import requests
 import json
 import sys
@@ -43,6 +43,10 @@ login_manager.login_view = 'login'
 def index():
 	return render_template('/index.html')
 
+class Theater(db.EmbeddedDocument):
+    theaterName = db.StringField()
+    theaterAddress = db.StringField()
+
 class Movie(db.EmbeddedDocument):
     movieName = db.StringField()
     movieDescription = db.StringField()
@@ -55,6 +59,7 @@ class User(UserMixin, db.Document):
     password = db.StringField()
     location = db.StringField()
     favorites = db.ListField(db.EmbeddedDocumentField(Movie))
+    theaters = db.ListField(db.EmbeddedDocumentField(Theater))
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -111,12 +116,6 @@ def logout():
 @app.route('/dashboard', methods = ['POST', 'GET'])
 @login_required
 def dashboard():
-    #ADDED CODE
-    movies = []
-    movie1 = Movie("firstmovie", "last", "poster")
-    movie2 = Movie("secondmovie", "third", "poster2")
-    movies.append(movie1)
-    movies.append(movie2)
 
     location = current_user.location
     radius = 50000
@@ -160,7 +159,7 @@ def dashboard():
         tempT.lng = item["geometry"]["location"]["lng"]
         list.append(tempT)
 
-    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict, name=current_user.name, movies=movies)
+    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict, name=current_user.name)
 
 @app.route('/pop', methods=['GET', 'POST'])
 def pop():
@@ -198,6 +197,42 @@ def pop():
 @app.route('/user', methods=['GET'])
 def userProfile():
     return render_template('user_profile.html', user=current_user)
+
+@app.route('/movies')
+def moviesPage():
+    movies = []
+    movie1 = Movie("firstmovie", "last", "poster")
+    movie2 = Movie("secondmovie", "third", "poster2")
+    movies.append(movie1)
+    movies.append(movie2)
+    return render_template('movies.html', movies=movies)
+
+@app.route('/fave-theaters', methods=['POST'])
+def fave_theater():
+    if request.method == 'POST':
+        name = (str(request.form.get('nameInput')))
+        address = (str(request.form.get('addressInput')))
+
+    current_theaters = current_user.theaters
+    newTheater = Theater(name, address)
+    current_theaters.append(newTheater)
+    current_user.theaters = current_theaters
+    current_user.save()
+    return redirect(url_for('dashboard'))
+
+@app.route('/fave-movies', methods=['POST'])
+def fave_movie():
+    if request.method == 'POST':
+        name = (str(request.form.get('nameInput')))
+        description = (str(request.form.get('descriptionInput')))
+        poster = (str(request.form.get('posterInput')))
+
+    current_favorites = current_user.favorites
+    newMovie= Movie(name, description, poster)
+    current_favorites.append(newMovie)
+    current_user.favorites = current_favorites
+    current_user.save()
+    return redirect(url_for('moviesPage'))
 
 if __name__ == '__main__':
     app.run(debug = True)

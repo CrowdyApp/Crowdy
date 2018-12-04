@@ -9,9 +9,15 @@
   <div class="background">
     <div class="userBox">
       <h1 class="userTitle">hi {{current_user.name}}</h1>
+      <h2>Favorite Movies</h2>
       <p>{% for element in current_user.favorites %}
        {{element.movieName}}
     {% endfor %}</p>
+
+    <h2>Favorite Theaters</h2>
+    <p>{% for element in current_user.theaters %}
+      {{element.theaterName}}
+        {% endfor %}</p>
     </div>
 
   </div>
