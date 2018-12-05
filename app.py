@@ -15,9 +15,15 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 
 app = Flask(__name__)
 
+# data = [
+# 			{ "label": "apple",  "y": 10  },
+# 			{ "label": "orange", "y": 15  },
+# 			{ "label": "banana", "y": 25  },
+# 			{ "label": "mango",  "y": 30  },
+# 			{ "label": "grape",  "y": 28  }]
+
 labels = [
-    '6am', '7am', '8am', '9am',
-    '10am', '11am', '12pm', '1pm',
+    '11am', '12pm', '1pm',
     '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm',
     '10pm', '11pm', '12am', '1am', '2am', '3am', '4am', '5am'
 ]
@@ -176,35 +182,19 @@ def dashboard():
 
 @app.route('/pop', methods=['GET', 'POST'])
 def pop():
-    if request.method == 'POST':
-        day = datetime.datetime.now()
-        select = (str(request.form.get('place')))
-
-    res = [0, 0, 0, 0, 0, 0, 0, 0, 26, 35]
+    data = []
+    res = [0, 0, 0, 0, 26, 35]
     for j in range(9):
         res.append(random.randint(38, 43))
 
     res.append(33)
     res.append(28)
 
-    day = day.strftime("%A")
-    if day == 'Monday':
-        curr = 0
-    if day == 'Tuesday':
-        curr = 1
-    if day == 'Wednesday':
-        curr = 2
-    if day == 'Thursday':
-        curr = 3
-    if day == 'Friday':
-        curr = 4
-    if day == 'Saturday':
-        curr = 5
-    if day == 'Sunday':
-        curr = 6
+    for i in range(len(res)):
+        data.append({"label": labels[i], "y": res[i]})
 
-    bar_labels=labels
-    return render_template('popular_times.html', title='Popular Times', max=50, labels=bar_labels, times=res)
+    return json.dumps(data)
+    # return render_template('popular_times.html', title='Popular Times', max=50, labels=bar_labels, times=res)
 
 @login_required
 @app.route('/user', methods=['GET'])

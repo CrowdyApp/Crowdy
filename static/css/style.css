@@ -264,11 +264,12 @@ input[type="submit"]:hover {
 
 
 .theatreBox{
+  margin-left: 50px;
   width: 80%;
   /* margin-bottom: 0; */
   background: blue;
   /* margin: 0 auto; */
-  float: right;
+  margin-bottom: 10px;
 }
 
 .theatreBox p {
@@ -283,9 +284,14 @@ input[type="submit"]:hover {
 
 }
 
+.showChart{
+  /* margin-top: 30px; */
+  float: left;
+}
+
 .heartBox{
-  height: 20px;
-  width: 10px;
+  height: 50px;
+  width: 100px;
   background-color: red;
   float: left;
 }
