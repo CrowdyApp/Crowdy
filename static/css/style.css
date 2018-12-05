@@ -5,7 +5,7 @@
 }
 
 @font-face {
-  src: url(fonts/Aller.ttf);
+  /*src: url(fonts/Aller.ttf);*/
   font-family: aller;
 }
 
@@ -166,7 +166,7 @@ input[type="submit"] {
 
 
 input[type="submit"]:hover {
-  background: ##b9aa7d;
+  background: #b9aa7d;
   width:260px;
   border: 1.5px solid #0a5378;
   text-shadow:0px 1px 1px rgba(0,0,0,.65);
@@ -207,14 +207,50 @@ input[type="submit"]:hover {
 
 
 /* Display Theatres Page */
+.userProfile {
+  width: 10%;
+  float:left;
+  position: relative;
+}
 
+.userButton {
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.userButton:hover{
+  color: #eed697;
+}
+
+.crowdyWrapper{
+    background-color: #31393a;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    align-content: center;
+    margin:auto;
+    padding:0;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 .inputWrapper{
   background-color: red;
   width: 100vw;
   float: left;
   background-color: #efd698;
-  background-image: linear-gradient(to right, #efd698 , #cf9706);
+  /* background-image: linear-gradient(to right, #efd698 , #cf9706); */
 
 }
 
@@ -370,10 +406,6 @@ input[type="submit"]:hover {
   color: #eed697;
 }
 
-
-
-
-
  /* bottom */
 .bottom{
   width: 100%;
@@ -462,14 +494,6 @@ input[type="submit"]:hover {
   font-family: gotham;
 }
 
-/* .userMovies{
-width: 20%;
-height: 20%;
-background-color: red;
-float: left;
-} */
-
-
 
 .userSubTitle{
   color: black;
@@ -484,10 +508,35 @@ height: 40%;
 margin: 0 auto;
 margin-top: 17px;
 overflow-y: auto;
-
+background: #f2dda8;
 }
 
-.userP{
+.theaterName{
   color: black;
-  text-align: left;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboardForm {
+  float: left;
+}
+
+.dashboardButton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.dashboardButton:hover{
+  color: #eed697;
 }
