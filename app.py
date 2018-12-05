@@ -110,7 +110,7 @@ def login():
 @login_required
 def logout():
 	logout_user()
-	return redirect(url_for('login'))
+	return redirect(url_for('index'))
 
 #Retrieves all theaters by location and radius
 @app.route('/dashboard', methods = ['POST', 'GET'])

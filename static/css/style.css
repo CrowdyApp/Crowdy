@@ -208,6 +208,28 @@ input[type="submit"]:hover {
 
 /* Display Theatres Page */
 
+.userProfile {
+  width: 10%;
+  float:left;
+  position: relative;
+}
+
+.userButton {
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.userButton:hover{
+  color: #eed697;
+}
+
 .crowdyWrapper{
     background-color: #31393a;
     width: 100%;
@@ -230,7 +252,7 @@ input[type="submit"]:hover {
   width: 100vw;
   float: left;
   background-color: #efd698;
-  background-image: linear-gradient(to right, #efd698 , #cf9706);
+  /* background-image: linear-gradient(to right, #efd698 , #cf9706); */
 
 }
 
@@ -500,10 +522,35 @@ height: 40%;
 margin: 0 auto;
 margin-top: 17px;
 overflow-y: auto;
-
+background: #f2dda8;
 }
 
-.userP{
+.theaterName{
   color: black;
-  text-align: left;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboardForm {
+  float: left;
+}
+
+.dashboardButton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.dashboardButton:hover{
+  color: #eed697;
 }
