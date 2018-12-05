@@ -29,14 +29,16 @@ html,body
 }
 
 #crowdyTitle {
-  margin-left: 100px;
+  margin: 0 auto;
+  font-size: 130px;
 }
 
 .top-right {
-  width:90px;
+  width:30px;
   /* background-color: red; */
   float: right;
-  margin-right: 20px;
+  margin-right: 60px;
+  margin-top: 20px;
 }
 
 .subTitle{
@@ -258,6 +260,15 @@ input[type="submit"]:hover {
   color: #eed697;
 }
 
+#tName {
+  color: white;
+  text-decoration: none;
+}
+
+#tName:hover {
+  color: #eed697;
+}
+
 .crowdyWrapper{
     background-color: #31393a;
     width: 100%;
@@ -330,9 +341,9 @@ input[type="submit"]:hover {
 
 }
 
-#heart{
-  width: 7%;
-  height: 7%;
+
+#heartLogo:hover {
+  background: url("https://i.imgur.com/Hbl7dgr.png") no-repeat;
   cursor: pointer;
 }
 
@@ -350,18 +361,10 @@ input[type="submit"]:hover {
     bottom:10%;
     left:30%;
     border: none;
+    background-color: #1F2525;
 }
 
 
-#heart{
-  height: 20%;
-  width: 6%;
-  /* margin-left: -50px; */
-  /* margin-top: 100px; */
-  /* padding-top: 50px; */
-  margin: 0 auto;
-
-}
 #address{
   font-size: 12px;
   color: #eed697;
@@ -390,7 +393,6 @@ input[type="submit"]:hover {
   margin-left: -10px;
   width: 40px;
   height: 40px;
-  float: left;
 }
 
 #map{
