@@ -14,11 +14,14 @@
   </head>
   <div class="backgroundTheatrePage">
     <div class="crowdyWrapper">
-      <form class = "userProfile" action="{{ url_for('userProfile') }}" method="GET">
-        <button type="submit" class="userButton">User</button>
-      </form>
-      <a id="logout"href='logout'>Logout</a>
-      <p class="title">Crowdy</p>
+      <div class="top-right">
+        <form class = "userProfile" action="{{ url_for('userProfile') }}" method="GET">
+          <button type="submit" class="userButton">User</button>
+        </form>
+        <a id="logout"href='logout'>Logout</a>
+      </div>
+
+      <p class="crowdyTitle">Crowdy</p>
       <!-- <p class="subTitle">Here. Are. Your. Theaters.</p> -->
     </div>
     <div class="inputWrapper">

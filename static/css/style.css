@@ -18,11 +18,22 @@ html,body
     overflow-x: hidden;
 }
 
-.title{
-  margin-top: 10px;
+.title {
+  margin-top: 4%;
+  font-size: 154px;
+  font-family: gotham;
+  text-align: center;
+  color: white;
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+.crowdyTitle{
+  margin-top: 15px;
   font-size: 50px;
   font-family: gotham;
   color: white;
+  margin-left: 20px;
   /* margin-bottom: 10px; */
   /* text-align: center; */
 }
@@ -224,6 +235,14 @@ input[type="submit"]:hover {
 
 
 /* Display Theatres Page */
+
+.top-right {
+  width:100px;
+  /* background-color: red; */
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
+}
 
 .userButton {
   position: relative;
