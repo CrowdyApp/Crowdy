@@ -6,20 +6,27 @@
   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body class="background">
-    <form action="/dashboard" method="GET">
-      <button type="submit" class="btn btn-default">Dashboard</button>
-    </form>
+
+  <form class="dashboardForm"action="/dashboard" method="GET">
+  <button type="submit" class="dashboardButton">Dashboard</button>
+  </form>
+
     <div class="userBox">
 
-        <h1 class="userTitle">hi {{current_user.name}}</h1>
+        <h1 class="userTitle">Hi, {{current_user.name}}</h1>
         <img id="userPic" src="https://imgur.com/IMiMLqF.png" alt="">
         <p id = "userAdd">Current Location: {{ current_user.location }}</p>
 
       <h2 class="userSubTitle">Favorite Theaters</h2>
       <div class="userTheatres">
-        <p class="userP">{% for element in current_user.theaters %}
-          {{element.theaterName}}
-            {% endfor %}</p>
+        {% for element in current_user.theaters %}
+          <ul class="theaterList">
+            <li>
+              <h4> {{ element.theaterName }}</h3>
+              <p> {{ element.theaterAddress }}</p>
+            </li>
+          </ul>
+        {% endfor %}
       </div>
 
   </div>
