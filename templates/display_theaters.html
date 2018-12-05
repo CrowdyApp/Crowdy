@@ -14,30 +14,50 @@
   </head>
   <div class="backgroundTheatrePage">
     <div class="crowdyWrapper">
+      <form class = "userProfile" action="{{ url_for('userProfile') }}" method="GET">
+        <button type="submit">User</button>
+      </form>
       <p class="title">Crowdy</p>
       <p class="subTitle">Here. Are. Your. Theaters.</p>
     </div>
-
-
+    <div class="inputWrapper">
+      <form class = "theaterForm"action="{{ url_for('dashboard') }}" method="POST">
+        <input id="" type="text" name="inputTheater" placeholder="Search Theatre">
+        <input id="" type="text" name="inputLocation" placeholder="Zip Code"></input>
+        <button type="submit" name="button">Search</button>
+      </input>
+      </form>
+      </div>
+    </div>
     <body class="bodyDis">
       <div id = "map">
 
       </div>
       <div class="rightSide">
+        <div class="titleWrapper">
+          <p id="rightSideTitle">Don't Forget Your Popcorn</p>
+        </div>
       {% for element in list %}
 
         <div class="theatreBox">
           <p><b></b>{{ element.name }} </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
-          
+
             <button class="showChart">Click </button>
-           
+
            <div id="dialogBox" style="display: none;">
             <div id="chartContainer" class="dialog" style="height: 250px; width: 100%;"></div>
            </div>
           <div class="shit">
           </div>
         </div>
+
+        <form action="/fave-theaters" method="POST">
+          <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
+          <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
        {% endfor %}
      </div>
@@ -49,6 +69,13 @@
       <div id="chartContainer" class="dialog" style="height: 250px; width: 100%;"></div>
      </div> -->
 
+     <!-- <div id="movieReel">
+        <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
+        <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
+        <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
+     </div> -->
+<!--
+>>>>>>> master
      <div class="bottom">
        <p id="title2">Meet The Team</p>
        <div class="mojiWrapper">
@@ -81,11 +108,13 @@
            <img class="bit" src="https://i.imgur.com/ZpIiPlv.png" alt="">
            <p class = "name">Eric Roque</p>
            <p class="position">Front-End Developer</p>
-           </div>
-           <!-- <a href='logout'>Logout</a> -->
+           </div> -->
         </body>
         <!-- <img id="leftCornD" src="https://imgur.com/nmzMpNZ.png" alt=""> -->
         <!-- <img id="rightCornD" src="https://imgur.com/ls2WbKd.png" alt=""> -->
+
+
+<!--SCRIPT-->
         <script>
          var locations = [];
          {% for element in list %}
@@ -189,7 +218,7 @@
 
            marker = new google.maps.Marker({
                position: location,
-               icon: 'https://i.imgur.com/E8chygb.png',
+               icon: 'https://imgur.com/dOQ5uvh.png',
                map: map
 
              });
@@ -204,7 +233,7 @@
 
              marker = new google.maps.Marker({
                position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-               icon: 'https://i.imgur.com/FOZCPJz.png',
+               icon: 'https://imgur.com/qUnGRR1.png',
                map: map
 
              });
@@ -266,7 +295,7 @@
           		});
           	}
           	$("#chartContainer").CanvasJSChart(options);
-            
+
           }
           $.getJSON("/pop", addData);
 

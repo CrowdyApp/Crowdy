@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import requests
 import json
 import sys
@@ -49,13 +49,23 @@ login_manager.login_view = 'login'
 def index():
 	return render_template('/index.html')
 
+class Theater(db.EmbeddedDocument):
+    theaterName = db.StringField()
+    theaterAddress = db.StringField()
+
+class Movie(db.EmbeddedDocument):
+    movieName = db.StringField()
+    movieDescription = db.StringField()
+    poster = db.StringField()
+
 class User(UserMixin, db.Document):
     meta = {'collection': 'users'}
     name = db.StringField()
     email = db.StringField(max_length=30)
     password = db.StringField()
     location = db.StringField()
-    wishlist = db.ListField(StringField(), default=list)
+    favorites = db.ListField(db.EmbeddedDocumentField(Movie))
+    theaters = db.ListField(db.EmbeddedDocumentField(Theater))
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -63,9 +73,10 @@ def load_user(user_id):
 
 #FORMS
 class RegForm(FlaskForm):
-	email = StringField('Email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
-	password = PasswordField('Password', validators=[InputRequired(), Length(min=1, max=20)])
-	location = StringField('Email',  validators=[InputRequired(), Length(max=30)])
+    name = StringField('Name', validators=[InputRequired(), Length(max=30)])
+    email = StringField('Email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=1, max=20)])
+    location = StringField('Location',  validators=[InputRequired(), Length(max=30)])
 
 class LogForm(FlaskForm):
 	email = StringField('Email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
@@ -80,7 +91,7 @@ def register():
 			existing_user = User.objects(email=form.email.data).first()
 			if existing_user is None:
 				hashpass = generate_password_hash(form.password.data, method='sha256')
-				user = User(form.email.data,hashpass,form.location.data).save()
+				user = User(form.name.data,form.email.data,hashpass,form.location.data).save()
 				login_user(user)
 				return redirect(url_for('dashboard'))
 	return render_template('register.html', form=form)
@@ -111,10 +122,29 @@ def logout():
 @app.route('/dashboard', methods = ['POST', 'GET'])
 @login_required
 def dashboard():
+    location = None
+    keyword = None
+
+    if request.method == 'POST':
+        if request.form.get('inputLocation') and request.form.get('inputTheater'):
+            location = request.form.get('inputLocation')
+            keyword = request.form.get('inputTheater')
+        else:
+            if request.form.get('inputLocation'):
+                location = request.form.get('inputLocation')
+            else:
+                location = current_user.location
+            if request.form.get('inputTheater'):
+                keyword = request.form.get('inputTheater')
+    else:
+        location = current_user.location
+        keyword=''
+
+    radius = 35000
     #Converts location string to longitude and latitude radiusString
     geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json"
     paramsGeocode = dict(
-    	address=current_user.location,
+    	address=location,
     	key='AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI'
     )
     resp = requests.get(url=geocodeUrl, params=paramsGeocode).content
@@ -130,9 +160,10 @@ def dashboard():
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
     params = dict(
     	location=lat + ',' + lng,
-    	radius=40000,
+    	radius=radius,
     	type='movie_theater',
-    	key='AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI'
+    	key='AIzaSyBBABVNXk90RVdvQqgDanDifw-bgMGeONI',
+        keyword=keyword
     )
     data = requests.get(url=url, params=params).content
     parseData = json.loads(data)
@@ -147,7 +178,7 @@ def dashboard():
         tempT.lng = item["geometry"]["location"]["lng"]
         list.append(tempT)
 
-    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict)
+    return render_template('display_theaters.html', list=list, userLocationDict=userLocationDict, name=current_user.name)
 
 @app.route('/pop', methods=['GET', 'POST'])
 def pop():
@@ -164,6 +195,47 @@ def pop():
 
     return json.dumps(data)
     # return render_template('popular_times.html', title='Popular Times', max=50, labels=bar_labels, times=res)
+
+@login_required
+@app.route('/user', methods=['GET'])
+def userProfile():
+    return render_template('user_profile.html', user=current_user)
+
+@app.route('/movies')
+def moviesPage():
+    movies = []
+    movie1 = Movie("firstmovie", "last", "poster")
+    movie2 = Movie("secondmovie", "third", "poster2")
+    movies.append(movie1)
+    movies.append(movie2)
+    return render_template('movies.html', movies=movies)
+
+@app.route('/fave-theaters', methods=['POST'])
+def fave_theater():
+    if request.method == 'POST':
+        name = (str(request.form.get('nameInput')))
+        address = (str(request.form.get('addressInput')))
+
+    current_theaters = current_user.theaters
+    newTheater = Theater(name, address)
+    current_theaters.append(newTheater)
+    current_user.theaters = current_theaters
+    current_user.save()
+    return redirect(url_for('dashboard'))
+
+@app.route('/fave-movies', methods=['POST'])
+def fave_movie():
+    if request.method == 'POST':
+        name = (str(request.form.get('nameInput')))
+        description = (str(request.form.get('descriptionInput')))
+        poster = (str(request.form.get('posterInput')))
+
+    current_favorites = current_user.favorites
+    newMovie= Movie(name, description, poster)
+    current_favorites.append(newMovie)
+    current_user.favorites = current_favorites
+    current_user.save()
+    return redirect(url_for('moviesPage'))
 
 if __name__ == '__main__':
     app.run(debug = True)

@@ -1,0 +1,15 @@
+<body>
+  <h1>Movies</h1>
+  {% for element in movies %}
+  <h2>Movie Name</h2>
+    {{ element.movieName }}
+  <h2>Movie Description</h2>
+    {{ element.movieDescription }}
+    <form action="/fave-movies" method="POST">
+      <input id="disappear" type="hidden" name="nameInput" value="{{ element.movieName }}"></input>
+      <input id="disappear" type="hidden" name="descriptionInput" value="{{ element.movieDescription }}"></input>
+      <input id="disappear" type="hidden" name="posterInput" value="{{ element.poster }}"></input>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  {% endfor %}
+</body>

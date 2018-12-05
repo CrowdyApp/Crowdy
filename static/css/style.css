@@ -9,6 +9,15 @@
   font-family: aller;
 }
 
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
 .title{
   margin-top: 4%;
   font-size: 154px;
@@ -16,6 +25,7 @@
   text-align: center;
   color: white;
   margin-bottom: -10px;
+  text-align: center;
 }
 
 .subTitle{
@@ -24,6 +34,10 @@
   text-align: center;
   color: #eed697;
   letter-spacing: 20px;
+}
+
+.empty{
+  margin-bottom: 70px;
 }
 
 .background{
@@ -51,7 +65,7 @@
 }
 
 body {
-  background: #bdbdc7;
+  background: #31393a;
   margin: 0 0;
   text-align:center;
 }
@@ -85,6 +99,11 @@ form {
 
 #login{
   margin-top: -30px;
+}
+
+#adj{
+  margin-top: -20px;
+
 }
 
 #titleLogin{
@@ -201,32 +220,49 @@ input[type="submit"]:hover {
     margin:auto;
     padding:0;
     background-size: cover;
-    /* Create the parallax scrolling effect */
+    Create the parallax scrolling effect
     background-attachment: fixed;
     background-size: cover;
 }
 
+.inputWrapper{
+  background-color: red;
+  width: 100vw;
+  float: left;
+  background-color: #efd698;
+  background-image: linear-gradient(to right, #efd698 , #cf9706);
+
+}
+
+.topForms{
+  float: left;
+  margin: -5px;
+  margin-left: 5px;
+}
+
 
 .theatreBox{
-
-  width: 100%;
-  margin-bottom: 60px;
+  width: 80%;
+  margin-bottom: 50px;
+  background: red;
+  margin: 0 auto;
 }
 
 .theatreBox p {
-  width: 600px;
   font-family: gotham;
   color: white;
   /* border-style: solid;
   border-width: 1px; */
-  font-size: 12px;
-  margin-right: 30%;
+  font-size: 14px;
+  clear: both;
+  float: left;
 
 }
 
 #address{
-  font-size: 10px;
+  font-size: 12px;
   color: #eed697;
+  margin-top: -7px;
 }
 
 
@@ -242,15 +278,6 @@ input[type="submit"]:hover {
   position: fixed;
 }
 
-.shit{
-  width: 40px;
-  height: 40px;
-
-  /* border-style: solid;
-  border-width: 5px; */
-
-}
-
 .theatreBox button{
   margin-top: -91px;
   margin-right: 900px;
@@ -263,19 +290,107 @@ input[type="submit"]:hover {
 #map{
   background-color: #507176;
   width: 60%;
-  height: 100vh;
+  height: 80vh;
   float: left;
 }
 
 .rightSide{
   width: 40%;
-  height: 100vh;
+  height: 80vh;
   background-color: #1F2525;
   float: right;
   overflow-y: auto;
 }
 
+.titleWrapper{
+  width: 80%;
+  /* background: red; */
+  margin: 0 auto;
+  margin-bottom: 45px;
+  margin-top: 40px;
+}
 
+#rightSideTitle{
+  margin-top: 4%;
+  font-size: 50px;
+  font-family: gotham;
+  text-align: center;
+  color: white;
+  margin-bottom: -10px;
+  text-align: left;
+}
+
+/* movieReel */
+#movieReel{
+  background-color: red;
+  height: 1200px;
+  width: 100%;
+  transition:width 0.1s;
+}
+
+.lol{
+  position: relative;
+    -webkit-animation: myfirst 5s 2; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation: myfirst 5s 2;
+    animation-direction: alternate;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 200px; top: 0px;}
+    50%  {background: blue; left: 200px; top: 200px;}
+    75%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+
+@keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 200px; top: 0px;}
+    50%  {background: blue; left: 200px; top: 200px;}
+    75%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+
+/* disBottom */
+
+.disBottom{
+  width: 20%;
+  float: right;
+  /* background-color: red; */
+}
+
+#logout{
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+}
+
+#meet{
+  text-align: right;
+  color: white;
+  font-family: gotham;
+  margin-right: 20px;
+}
+
+#logout:hover{
+  color: #eed697;
+}
+
+#meet:hover{
+  color: #eed697;
+}
+
+
+
+
+
+ /* bottom */
 .bottom{
   width: 100%;
   height: 70vh;
@@ -332,4 +447,63 @@ input[type="submit"]:hover {
 
 .ammenities {
   margin-right: 3px;
+}
+
+/* User Page */
+
+.userBox{
+  height: 85%;
+  width: 40%;
+  background-color: #eed697;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.userTitle{
+  margin-top: 10px;
+  font-size: 70px;
+  font-family: gotham;
+  color: black;
+  text-align: center;
+}
+
+#userPic{
+  width: 20%;
+}
+
+#userAdd{
+  margin-top: 17px;
+  font-family: gotham;
+}
+
+/* .userMovies{
+width: 20%;
+height: 20%;
+background-color: red;
+float: left;
+} */
+
+
+
+.userSubTitle{
+  color: black;
+  font-family: gotham;
+}
+
+
+.userTheatres{
+width: 80%;
+height: 40%;
+/* background-color: blue; */
+margin: 0 auto;
+margin-top: 17px;
+overflow-y: auto;
+
+}
+
+.userP{
+  color: black;
+  text-align: left;
 }
