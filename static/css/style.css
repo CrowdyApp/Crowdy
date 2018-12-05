@@ -119,7 +119,7 @@ body {
 
 #adj{
   margin-top: -20px;
-
+  margin: 0 auto;
 }
 
 #titleLogin{
@@ -127,6 +127,26 @@ body {
   font-size: 154px;
   color: white;
   font-family: gotham;
+}
+
+#email {
+  margin: 0 auto;
+}
+
+#password {
+  margin: 0 auto;
+}
+
+#name {
+  margin: 0 auto;
+}
+
+#location {
+  margin: 0 auto;
+}
+
+#adj2 {
+  margin: 0 auto;
 }
 
 
