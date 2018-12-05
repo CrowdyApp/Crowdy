@@ -69,14 +69,6 @@
         <img src="https://image.tmdb.org/t/p/w500//5urgy7sXFbvCK7SBmc0fF978AOb.jpg" alt="" style="width:250px;height:375px;"/>
       </div>
     </div>
-    <div class="inputWrapper">
-      <form class = "theaterForm"action="{{ url_for('dashboard') }}" method="POST">
-        <input id="" type="text" name="inputTheater" placeholder="Search Theatre">
-        <input id="" type="text" name="inputLocation" placeholder="Zip Code"></input>
-        <button type="submit" name="button">Search</button>
-      </input>
-      </form>
-      </div>
     </div>
     <body class="bodyDis">
       <div id = "map">
@@ -84,6 +76,12 @@
       </div>
       <div class="rightSide">
         <div class="titleWrapper">
+          <form class = "theaterForm"action="{{ url_for('dashboard') }}" method="POST">
+            <input type="text" name="inputTheater" placeholder="Search Theatre">
+            <input type="text" name="inputLocation" placeholder="Zip Code" style="margin-top: 10px">
+            <button class='search-button' type="submit" name="button" style="margin-top: 8px"><p id="search-p">Search</p></button>
+            </input>
+          </form>
           <p id="rightSideTitle">Don't Forget Your Popcorn</p>
         </div>
       {% for element in list %}
@@ -92,8 +90,8 @@
         <div class="theatreBox">
           <div class="heartBox">
             <form action="/fave-theaters" method="POST">
-              <input type="hidden" name="nameInput" value="{{ element.name }}"></input>
-              <input  type="hidden" name="addressInput" value="{{ element.address }}"></input>
+              <input type="hidden" name="nameInput" value="{{ element.name }}">
+              <input  type="hidden" name="addressInput" value="{{ element.address }}">
               <button type="submit" class="heartBut">
                 <img id="heartLogo" src="https://i.imgur.com/WhC4t26.png" alt="" style="width:24px; height:24px;">
               </button>
