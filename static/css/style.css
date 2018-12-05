@@ -5,7 +5,7 @@
 }
 
 @font-face {
-  src: url(fonts/Aller.ttf);
+  /*src: url(fonts/Aller.ttf);*/
   font-family: aller;
 }
 
@@ -166,7 +166,7 @@ input[type="submit"] {
 
 
 input[type="submit"]:hover {
-  background: ##b9aa7d;
+  background: #b9aa7d;
   width:260px;
   border: 1.5px solid #0a5378;
   text-shadow:0px 1px 1px rgba(0,0,0,.65);
@@ -207,6 +207,27 @@ input[type="submit"]:hover {
 
 
 /* Display Theatres Page */
+.userProfile {
+  width: 10%;
+  float:left;
+  position: relative;
+}
+
+.userButton {
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.userButton:hover{
+  color: #eed697;
+}
 
 .userProfile {
   width: 10%;
@@ -242,7 +263,6 @@ input[type="submit"]:hover {
     margin:auto;
     padding:0;
     background-size: cover;
-    Create the parallax scrolling effect
     background-attachment: fixed;
     background-size: cover;
 }
@@ -453,10 +473,6 @@ input[type="submit"]:hover {
   color: #eed697;
 }
 
-
-
-
-
  /* bottom */
 .bottom{
   width: 100%;
@@ -544,14 +560,6 @@ input[type="submit"]:hover {
   margin-top: 17px;
   font-family: gotham;
 }
-
-/* .userMovies{
-width: 20%;
-height: 20%;
-background-color: red;
-float: left;
-} */
-
 
 
 .userSubTitle{
