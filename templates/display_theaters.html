@@ -88,24 +88,25 @@
         </div>
       {% for element in list %}
 
-        <div class="theatreBox">
-          <p><b></b>{{ element.name }} </p>
-          <p id="address"><b>Address: </b>{{ element.address }} </p>
 
-            <button class="showChart">Click </button>
+        <div class="theatreBox">
+          <div class="heartBox">
+            <form action="/fave-theaters" method="POST">
+              <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
+              <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
+              <button type="submit" class="heartBut"><img id="heartLogo" src="https://imgur.com/aQBHvrN.png" alt=""></button>
+            </form>
+
+          </div>
+
+          <p ><b></b><a class="showChart" href="#">{{ element.name }}</a> </p>
+          <p id="address"><b>Address: </b>{{ element.address }} </p>
 
            <div id="dialogBox" style="display: none;">
             <div id="chartContainer" class="dialog" style="height: 250px; width: 100%;"></div>
            </div>
-          <div class="shit">
-          </div>
-        </div>
 
-        <form action="/fave-theaters" method="POST">
-          <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
-          <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        </div>
 
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
        {% endfor %}
@@ -351,7 +352,7 @@
         </script>
         <style>
         	.showChart{
-        		background-color: #5bb85b;
+        		background-color: #1F2525;
         		/* color: #ffffff;
         		padding: 10px;
         		border: 0px;
