@@ -287,7 +287,7 @@ input[type="submit"]:hover {
   margin-left: 50px;
   width: 80%;
   /* margin-bottom: 0; */
-  background: blue;
+  /* background: blue; */
   /* margin: 0 auto; */
   margin-bottom: 10px;
   height: 50px;
@@ -314,7 +314,7 @@ input[type="submit"]:hover {
 .heartBox{
   height: 50px;
   width: 50px;
-  background-color: red;
+  /* background-color: red; *
   /* float: left; */
   /* position:static; */
   /* display: block; */
@@ -323,14 +323,26 @@ input[type="submit"]:hover {
 
 }
 
+#heart{
+  width: 7%;
+  height: 7%;
+  cursor: pointer;
+}
+
 .showChart{
-  background-color: red;
+  /* background-color: red; */
+
+
+}
+
+.heartBut{
   height:20px;
     width:100px;
-    margin: -1000px -50px;
+    /* margin: -1000px -50px; */
     position:relative;
-    top:195%;
+    bottom:10%;
     left:30%;
+    border: none;
 }
 
 

@@ -88,10 +88,15 @@
 
         <div class="theatreBox">
           <div class="heartBox">
-              <button style="background: url(https://imgur.com/ls2WbKd.png)" class="showChart"> </button>
+            <form action="/fave-theaters" method="POST">
+              <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
+              <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
+              <button type="submit" class="heartBut"><img id="heartLogo" src="https://imgur.com/aQBHvrN.png" alt=""></button>
+            </form>
+
           </div>
 
-          <p><b></b>{{ element.name }} </p>
+          <p ><b></b><a class="showChart" href="#">{{ element.name }}</a> </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
 
            <div id="dialogBox" style="display: none;">
@@ -99,7 +104,6 @@
            </div>
 
         </div>
-
 
        <!--<p><b>Rating: </b>{{ element.rating }} </p><br>-->
        {% endfor %}
@@ -345,7 +349,7 @@
         </script>
         <style>
         	.showChart{
-        		background-color: #5bb85b;
+        		background-color: #1F2525;
         		/* color: #ffffff;
         		padding: 10px;
         		border: 0px;
