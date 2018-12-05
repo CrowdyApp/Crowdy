@@ -28,6 +28,17 @@ html,body
   text-align: center;
 }
 
+#crowdyTitle {
+  margin-left: 100px;
+}
+
+.top-right {
+  width:90px;
+  /* background-color: red; */
+  float: right;
+  margin-right: 20px;
+}
+
 .subTitle{
   font-size: 30px;
   font-family: gotham;
@@ -207,11 +218,6 @@ input[type="submit"]:hover {
 
 
 /* Display Theatres Page */
-.userProfile {
-  width: 10%;
-  float:left;
-  position: relative;
-}
 
 .userButton {
   position: relative;
@@ -223,6 +229,7 @@ input[type="submit"]:hover {
   color: white;
   cursor:pointer;
   font-size: 20px;
+  text-align: left;
 }
 
 .userButton:hover{
@@ -461,13 +468,15 @@ input[type="submit"]:hover {
 }
 
 #logout{
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
   text-decoration: none;
   font-family: gotham;
   color: white;
-  float: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-
+  cursor:pointer;
+  font-size: 20px;
 }
 
 #meet{

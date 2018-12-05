@@ -13,21 +13,22 @@
 
     <div class="userBox">
 
+      <div class="upperBox">
         <h1 class="userTitle">Hi, {{current_user.name}}</h1>
         <img id="userPic" src="https://imgur.com/IMiMLqF.png" alt="">
         <p id = "userAdd">Current Location: {{ current_user.location }}</p>
 
-      <h2 class="userSubTitle">Favorite Theaters</h2>
-      <div class="userTheatres">
-        {% for element in current_user.theaters %}
-          <ul class="theaterList">
-            <li>
-              <h4> {{ element.theaterName }}</h4>
-              <p> {{ element.theaterAddress }}</p>
-            </li>
-          </ul>
-        {% endfor %}
-      </div>
+        <h2 class="userSubTitle">Favorite Theaters</h2>
+        <div class="userTheatres">
+          {% for element in current_user.theaters %}
+            <ul class="theaterList">
+              <li>
+                <h4> {{ element.theaterName }}</h3>
+                <p> {{ element.theaterAddress }}</p>
+              </li>
+            </ul>
+          {% endfor %}
+        </div>
 
   </div>
   <img id="leftCorn" src="https://imgur.com/nmzMpNZ.png" alt="">
