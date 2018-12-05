@@ -5,7 +5,7 @@
 }
 
 @font-face {
-  src: url(fonts/Aller.ttf);
+  /*src: url(fonts/Aller.ttf);*/
   font-family: aller;
 }
 
@@ -18,7 +18,7 @@ html,body
     overflow-x: hidden;
 }
 
-.title {
+.title{
   margin-top: 4%;
   font-size: 154px;
   font-family: gotham;
@@ -28,32 +28,15 @@ html,body
   text-align: center;
 }
 
-.crowdyTitle{
-  margin-top: 15px;
-  font-size: 50px;
-  font-family: gotham;
-  color: white;
-  margin-left: 20px;
-  /* margin-bottom: 10px; */
-  /* text-align: center; */
+#crowdyTitle {
+  margin-left: 100px;
 }
 
-
-.crowdyWrapper{
-    background-color: #31393a;
-    width: 100%;
-    height: 100px;
-    overflow: hidden;
-    background-position: center center;
-    background-repeat: no-repeat;
-    /* text-align:center; */
-    align-content: center;
-    margin:auto;
-    padding:0;
-    background-size: cover;
-    Create the parallax scrolling effect
-    background-attachment: fixed;
-    background-size: cover;
+.top-right {
+  width:90px;
+  /* background-color: red; */
+  float: right;
+  margin-right: 20px;
 }
 
 .subTitle{
@@ -118,7 +101,7 @@ body {
 }
 
 
-.form1 {
+form {
   background: none;
   margin: 20px auto 0;
   padding: 10px;
@@ -194,7 +177,7 @@ input[type="submit"] {
 
 
 input[type="submit"]:hover {
-  background: ##b9aa7d;
+  background: #b9aa7d;
   width:260px;
   border: 1.5px solid #0a5378;
   text-shadow:0px 1px 1px rgba(0,0,0,.65);
@@ -236,27 +219,59 @@ input[type="submit"]:hover {
 
 /* Display Theatres Page */
 
-.top-right {
-  width:100px;
-  /* background-color: red; */
-  float: right;
-  margin-right: 20px;
-  margin-top: 15px;
+.userButton {
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+  text-align: left;
+}
+
+.userButton:hover{
+  color: #eed697;
+}
+
+.userProfile {
+  width: 10%;
+  float:left;
+  position: relative;
 }
 
 .userButton {
   position: relative;
   background-color: Transparent;
+  background-repeat:no-repeat;
   border: none;
+  text-decoration: none;
   font-family: gotham;
   color: white;
   cursor:pointer;
   font-size: 20px;
-  float: right;
 }
 
 .userButton:hover{
   color: #eed697;
+}
+
+.crowdyWrapper{
+    background-color: #31393a;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    align-content: center;
+    margin:auto;
+    padding:0;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .inputWrapper{
@@ -398,12 +413,13 @@ input[type="submit"]:hover {
 #logout{
   position: relative;
   background-color: Transparent;
+  background-repeat:no-repeat;
   border: none;
+  text-decoration: none;
   font-family: gotham;
   color: white;
   cursor:pointer;
   font-size: 20px;
-  float: right;
 }
 
 #meet{
@@ -420,10 +436,6 @@ input[type="submit"]:hover {
 #meet:hover{
   color: #eed697;
 }
-
-
-
-
 
  /* bottom */
 .bottom{
@@ -492,13 +504,13 @@ input[type="submit"]:hover {
   background-color: #eed697;
   margin: 0 auto;
   margin-top: 50px;
-  /* padding: 30px; */
+  padding: 30px;
   border-radius: 20px;
 }
 
 .userTitle{
   margin-top: 10px;
-  font-size: 50px;
+  font-size: 70px;
   font-family: gotham;
   color: black;
   text-align: center;
@@ -513,29 +525,21 @@ input[type="submit"]:hover {
   font-family: gotham;
 }
 
-/* .userMovies{
-width: 20%;
-height: 20%;
-background-color: red;
-float: left;
-} */
-
-
 
 .userSubTitle{
   color: black;
   font-family: gotham;
-  margin: 20px 0px 20px 0px;
 }
 
 
 .userTheatres{
-  width: 80%;
-  height: 40%;
-  margin: 0 auto;
-  margin-top: -7px;
-  overflow-y: auto;
-  background: #eed697;
+width: 80%;
+height: 40%;
+/* background-color: blue; */
+margin: 0 auto;
+margin-top: 17px;
+overflow-y: auto;
+background: #f2dda8;
 }
 
 .theaterName{
@@ -547,7 +551,6 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  font-family: gotham;
 }
 
 .dashboardForm {
@@ -567,11 +570,4 @@ ul {
 
 .dashboardButton:hover{
   color: #eed697;
-}
-
-.upperBox {
-  background: white;
-  border-radius: 20px 20px 0px 0px;
-  margin-bottom: 10px;
-  padding: 3px 0px 3px 0px;
 }

@@ -5,6 +5,7 @@
     <title>Theatres in Your Area</title>
     <link rel= "stylesheet" type= "text/css" href= "../static/css/chart.css">
     <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
+    <link rel= "stylesheet" type= "text/css" href= "../static/css/movie_reel.css">
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
@@ -21,8 +22,52 @@
         <a id="logout"href='logout'>Logout</a>
       </div>
 
-      <p class="crowdyTitle">Crowdy</p>
+      <p class="title" id="crowdyTitle">Crowdy</p>
       <!-- <p class="subTitle">Here. Are. Your. Theaters.</p> -->
+    </div>
+    <div id="container2">
+      <div class="photobanner">
+        <img class="first" src="https://image.tmdb.org/t/p/w500//uyJgTzAsp3Za2TaPiZt2yaKYRIR.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//AiRfixFcfTkNbn2A73qVJPlpkUo.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//m110vLaDDOCca4hfOcS5mK5cDke.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//lCfKAAFyANPFn04xOPqazd8jwnc.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//5Il2EMSF2KecrUKZPuen6BZmaCP.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//l76Rgp32z2UxjULApxGXAPpYdAP.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//bpQdRYpiiCH25v6JOVAvrM4IiBb.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//6NmsbUJqnopbnLun2E4KvtVNj8T.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//aRD1vLU7k5NHO0HThfHrjEQwWRz.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//f27RTnWEc2bhVtfSlKmxxypznfR.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//v3QyboWRoA4O9RbcsqH8tJMe8EB.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//2icwBom0t5nmOuZI9FVXF3gkMK0.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//hrvhYQ1wMaMzmv7tYnaPL8bWx9t.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//3PU8BTwVrHEn2ILjInBQ5RWz8ZQ.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//cLa8lCiZyepoRPqAjnOhOvLPuyN.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//qhUIOTSi3kr4290tKrVyeriyvrv.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//4Y1AlIP3SIOTje3ky9p68XhQmHU.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//7BsvSuDQuoqhWmU2fL7W2GOcZHU.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//5urgy7sXFbvCK7SBmc0fF978AOb.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//uyJgTzAsp3Za2TaPiZt2yaKYRIR.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//AiRfixFcfTkNbn2A73qVJPlpkUo.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//m110vLaDDOCca4hfOcS5mK5cDke.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//lCfKAAFyANPFn04xOPqazd8jwnc.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//5Il2EMSF2KecrUKZPuen6BZmaCP.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//l76Rgp32z2UxjULApxGXAPpYdAP.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//bpQdRYpiiCH25v6JOVAvrM4IiBb.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//6NmsbUJqnopbnLun2E4KvtVNj8T.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//aRD1vLU7k5NHO0HThfHrjEQwWRz.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//f27RTnWEc2bhVtfSlKmxxypznfR.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//v3QyboWRoA4O9RbcsqH8tJMe8EB.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//2icwBom0t5nmOuZI9FVXF3gkMK0.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//hrvhYQ1wMaMzmv7tYnaPL8bWx9t.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//3PU8BTwVrHEn2ILjInBQ5RWz8ZQ.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//cLa8lCiZyepoRPqAjnOhOvLPuyN.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//qhUIOTSi3kr4290tKrVyeriyvrv.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//4Y1AlIP3SIOTje3ky9p68XhQmHU.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//7BsvSuDQuoqhWmU2fL7W2GOcZHU.jpg" alt="" style="width:250px;height:375px;"/>
+        <img src="https://image.tmdb.org/t/p/w500//5urgy7sXFbvCK7SBmc0fF978AOb.jpg" alt="" style="width:250px;height:375px;"/>
+      </div>
     </div>
     <div class="inputWrapper">
       <form class = "theaterForm"action="{{ url_for('dashboard') }}" method="POST">
@@ -79,7 +124,6 @@
         <img class="lol" src="https://i.imgur.com/Dcx53li.png" alt="">
      </div> -->
 <!--
->>>>>>> master
      <div class="bottom">
        <p id="title2">Meet The Team</p>
        <div class="mojiWrapper">
