@@ -35,17 +35,20 @@
           <p id="rightSideTitle">Don't Forget Your Popcorn</p>
         </div>
       {% for element in list %}
+      <div class="heartBox">
+
+      </div>
+
 
         <div class="theatreBox">
+
           <p><b></b>{{ element.name }} </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
+          <!-- <div class="heartBox">
+
+          </div> -->
         </div>
 
-        <form action="/fave-theaters" method="POST">
-          <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
-          <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
 
         <div id="chartID"></div>
 
