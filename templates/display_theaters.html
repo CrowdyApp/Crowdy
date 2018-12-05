@@ -23,7 +23,7 @@
       </div>
 
       <p class="title" id="crowdyTitle">Crowdy</p>
-      <!-- <p class="subTitle">Here. Are. Your. Theaters.</p> -->
+      <p class="subTitle">Here. Are. Your. Theaters.</p>
     </div>
     <div id="container2">
       <div class="photobanner">
@@ -92,14 +92,16 @@
         <div class="theatreBox">
           <div class="heartBox">
             <form action="/fave-theaters" method="POST">
-              <input id="disappear" type="hidden" name="nameInput" value="{{ element.name }}"></input>
-              <input id="disappear" type="hidden" name="addressInput" value="{{ element.address }}"></input>
-              <button type="submit" class="heartBut"><img id="heartLogo" src="https://imgur.com/aQBHvrN.png" alt=""></button>
+              <input type="hidden" name="nameInput" value="{{ element.name }}"></input>
+              <input  type="hidden" name="addressInput" value="{{ element.address }}"></input>
+              <button type="submit" class="heartBut">
+                <img id="heartLogo" src="https://i.imgur.com/WhC4t26.png" alt="" " style="width:24px; height:24px;">
+              </button>
             </form>
 
           </div>
 
-          <p ><b></b><a class="showChart" href="#">{{ element.name }}</a> </p>
+          <p ><b></b><a class="showChart" id="tName" href="#">{{ element.name }}</a> </p>
           <p id="address"><b>Address: </b>{{ element.address }} </p>
 
            <div id="dialogBox" style="display: none;">
@@ -352,7 +354,7 @@
         </script>
         <style>
         	.showChart{
-        		background-color: #1F2525;
+        		/* background-color: #1F2525; */
         		/* color: #ffffff;
         		padding: 10px;
         		border: 0px;
