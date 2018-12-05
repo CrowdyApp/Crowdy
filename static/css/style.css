@@ -479,13 +479,13 @@ input[type="submit"]:hover {
   background-color: #eed697;
   margin: 0 auto;
   margin-top: 50px;
-  padding: 30px;
+  /* padding: 30px; */
   border-radius: 20px;
 }
 
 .userTitle{
   margin-top: 10px;
-  font-size: 70px;
+  font-size: 50px;
   font-family: gotham;
   color: black;
   text-align: center;
@@ -512,17 +512,17 @@ float: left;
 .userSubTitle{
   color: black;
   font-family: gotham;
+  margin: 20px 0px 20px 0px;
 }
 
 
 .userTheatres{
-width: 80%;
-height: 40%;
-/* background-color: blue; */
-margin: 0 auto;
-margin-top: 17px;
-overflow-y: auto;
-background: #f2dda8;
+  width: 80%;
+  height: 40%;
+  margin: 0 auto;
+  margin-top: -7px;
+  overflow-y: auto;
+  background: #eed697;
 }
 
 .theaterName{
@@ -534,6 +534,7 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  font-family: gotham;
 }
 
 .dashboardForm {
@@ -553,4 +554,11 @@ ul {
 
 .dashboardButton:hover{
   color: #eed697;
+}
+
+.upperBox {
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  margin-bottom: 10px;
+  padding: 3px 0px 3px 0px;
 }
