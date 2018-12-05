@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+/* @import url('https://fonts.googleapis.com/css?family=Poppins'); */
 @font-face {
   src: url(fonts/gotham.ttf);
   font-family: gotham;
 }
 
 @font-face {
-  /*src: url(fonts/Aller.ttf);*/
+  src: url(fonts/Aller.ttf);
   font-family: aller;
 }
 
@@ -539,7 +539,7 @@ input[type="submit"]:hover {
 .name{
   font-size: 13;
   font-family: gotham;
-  color: white;
+  color: black;
 }
 
 
@@ -555,26 +555,39 @@ input[type="submit"]:hover {
 
 /* User Page */
 
+.backgroundUP{
+  background-color: #31393a;
+}
+
 .userBox{
-  height: 85%;
+  height: 92%;
   width: 40%;
-  background-color: #eed697;
+  background-color: #1F2525;
   margin: 0 auto;
   margin-top: 50px;
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 9px;
+  border-color: white;
+}
+
+.upperBox{
+  border-radius: 9px;
+  border-color: white;
 }
 
 .userTitle{
   margin-top: 10px;
   font-size: 70px;
   font-family: gotham;
-  color: black;
+  color: white;
   text-align: center;
 }
 
 #userPic{
   width: 20%;
+  display:block;
+    margin:auto;
+    margin-top: 30px;
 }
 
 #userAdd{
@@ -584,8 +597,10 @@ input[type="submit"]:hover {
 
 
 .userSubTitle{
-  color: black;
+  color: white;
   font-family: gotham;
+  margin-top: -5px;
+  text-align: center;
 }
 
 
@@ -596,22 +611,27 @@ height: 40%;
 margin: 0 auto;
 margin-top: 17px;
 overflow-y: auto;
-background: #f2dda8;
+background: #303030;
 }
 
 .theaterName{
-  color: black;
+  color: white;
   text-align: center;
+  font-family: gotham;
+  font-size: 16px;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  color: white;
+  /* font-size: 5rem; */
 }
 
 .dashboardForm {
   float: left;
+  margin: 15px;
 }
 
 .dashboardButton {
@@ -627,4 +647,19 @@ ul {
 
 .dashboardButton:hover{
   color: #eed697;
+}
+
+.tName{
+  margin: 13px;
+  font-size: 16px;
+  margin-bottom: -7px;
+  font-family: gotham;
+}
+
+.aName{
+  margin: 13px;
+  font-size: 12px;
+  font-family: gotham;
+  color: #eed697;
+
 }

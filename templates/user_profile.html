@@ -5,7 +5,7 @@
   <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
-<body class="background">
+<body class="backgroundUP">
 
   <form class="dashboardForm"action="/dashboard" method="GET">
   <button type="submit" class="dashboardButton">Dashboard</button>
@@ -15,16 +15,16 @@
 
       <div class="upperBox">
         <h1 class="userTitle">Hi, {{current_user.name}}</h1>
-        <img id="userPic" src="https://imgur.com/IMiMLqF.png" alt="">
+        <img id="userPic" src="https://imgur.com/k3Ux04w.png" alt="">
         <p id = "userAdd">Current Location: {{ current_user.location }}</p>
 
         <h2 class="userSubTitle">Favorite Theaters</h2>
         <div class="userTheatres">
           {% for element in current_user.theaters %}
             <ul class="theaterList">
-              <li>
-                <h4> {{ element.theaterName }}</h3>
-                <p> {{ element.theaterAddress }}</p>
+              <li class = "theaterText">
+                <p class="tName"> {{ element.theaterName }}</p>
+                <p class="aName"> {{ element.theaterAddress }}</p>
               </li>
             </ul>
           {% endfor %}
