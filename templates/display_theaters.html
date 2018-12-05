@@ -105,7 +105,7 @@
           <p id="address"><b>Address: </b>{{ element.address }} </p>
 
            <div id="dialogBox" style="display: none;">
-            <div id="chartContainer" class="dialog" style="height: 250px; width: 100%;"></div>
+            <div id="chartContainer" class="dialog" style="height: 400px; width: 100%;background-color: #1F2525; "></div>
            </div>
 
         </div>
@@ -304,14 +304,24 @@
         <script>
 
           window.onload = function () {
-          debugger;
+          CanvasJS.addColorSet("redShades",
+              [//colorSet Array
+              "#eed697",
+              "#d6c087",
+              "#beab78",
+              "#a69569"              
+              ]);
           var dataPoints = [];
-
+          
           var options =  {
+              theme: "dark1",
+              colorSet: "redShades",
+              backgroundColor: "#1F2525",
             	data: [
             	{
             		type: "column",
             		dataPoints: dataPoints
+
             	}
             	]
           };
@@ -321,11 +331,11 @@
           		open: function(event,ui) {
           			$(".ui-widget-overlay").bind("click", function(event,ui) {
           				$("#dialogBox").dialog("close").done(function(response){
-                     console.log("hi");
+                     
                     });;
           			});
           		},
-              title: "Popular Times",
+              title: "Crowdiness",
           		closeOnEscape: true,
           		draggable: false,
           		resizable: false,
