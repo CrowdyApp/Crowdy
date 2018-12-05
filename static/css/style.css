@@ -229,6 +229,28 @@ input[type="submit"]:hover {
   color: #eed697;
 }
 
+.userProfile {
+  width: 10%;
+  float:left;
+  position: relative;
+}
+
+.userButton {
+  position: relative;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  text-decoration: none;
+  font-family: gotham;
+  color: white;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.userButton:hover{
+  color: #eed697;
+}
+
 .crowdyWrapper{
     background-color: #31393a;
     width: 100%;
