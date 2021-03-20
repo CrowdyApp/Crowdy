@@ -12,7 +12,7 @@ get==1.0.3
 gunicorn==19.9.0
 idna==2.7
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 mongoengine==0.15.3
 pipenv==2018.10.13
